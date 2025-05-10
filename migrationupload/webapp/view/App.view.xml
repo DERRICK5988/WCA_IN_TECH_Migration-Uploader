@@ -1,7 +1,18 @@
 <mvc:View controllerName="intech.migrationupload.controller.App"
     displayBlock="true"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <App id="app">
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <App
+        id="App"
+        busy="{appView>/busy}"
+        busyIndicatorDelay="{appView>/delay}">
+        <f:FlexibleColumnLayout
+            id="layout"
+            layout="{appView>/layout}"
+            backgroundDesign="Translucent">
+        </f:FlexibleColumnLayout>
     </App>
 </mvc:View>

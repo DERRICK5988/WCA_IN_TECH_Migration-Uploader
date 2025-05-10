@@ -34,6 +34,9 @@
   },
   "sap.ui5": {
     "flexEnabled": true,
+    "config": {
+      "fullWidth": true
+    },
     "dependencies": {
       "minUI5Version": "1.135.0",
       "libs": {
@@ -49,7 +52,13 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "intech.migrationupload.i18n.i18n"
+          "bundleName": "intech.migrationupload.i18n.i18n",
+          "supportedLocales": [
+            "en",
+            "de",
+            "en_US"
+          ],
+          "fallbackLocale": "de"
         }
       }
     },
@@ -61,30 +70,46 @@
       ]
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "intech.migrationupload.view",
-        "async": true,
-        "viewPath": "intech.migrationupload.view"
-      },
+      "config": 
+      {
+				"routerClass": "sap.f.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"path": "intech.migrationupload.view",
+				"controlId": "layout",
+				"transition": "slide",
+				"bypassed": {
+				},
+				"async": true
+			},
       "routes": [
         {
-          "name": "RouteMaster",
-          "pattern": ":?query:",
+          "name": "Master",
+          "pattern": "",
           "target": [
-            "TargetMaster"
+            "Master"
+          ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail/{sParam}",
+          "target": [
+            "Detail"
           ]
         }
       ],
       "targets": {
-        "TargetMaster": {
-          "id": "Master",
-          "name": "Master"
+        "Master": {
+          "id": "master",
+          "name": "Master",
+          "viewLevel": 0,
+          "controlAggregation": "beginColumnPages"
+        },
+        "Detail": {
+          "id": "detail",
+          "name": "Detail",
+          "viewLevel": 1,
+          "controlAggregation": "midColumnPages"
         }
       }
     },

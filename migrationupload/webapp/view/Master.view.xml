@@ -1,6 +1,116 @@
 <mvc:View controllerName="intech.migrationupload.controller.Master"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns:core="sap.ui.core" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:vm="sap.ui.fl.variants"
+    xmlns:tnt="sap.tnt"
+    xmlns:t="sap.ui.table"
+    xmlns:uxap="sap.uxap"
+    xmlns:i18n="sap.ui.model.resource.ResourceModel">
+    <Page showHeader="false">
+        <content>
+            <f:SidePanel id="mySidePanel" toggle="onToggle" sidePanelResizable="true" sidePanelPosition="Left">
+                <f:mainContent>
+                    <!-- <VBox fitContainer="true">
+                        <items items="{path: 'products>/ProductCollection'}">
+                            <Panel expandable="true" expanded="false" headerText="{Items>name}" width="100%" class="sapUiSmallMargin">
+                                <content>
+
+                                </content>
+                            </Panel>
+                        </items>
+                    </VBox> -->
+                    <!-- <VBox fitContainer="true" items="{ path: 'ServicesModel>/aServices', sorter: { path: 'Name' } }"> -->
+                    <VBox fitContainer="true" class="sapUiTinyMargin">
+                        <items>
+                            <Panel expand="false" expandable="true" width="auto" class="sapUiMediumMarginEnd sapUiTinyMarginBottom">
+                                <headerToolbar>
+                                    <OverflowToolbar active="true" press="onNav($event, 'Detail', 'StatisticalFigureValue')">
+                                        <Title text="Statistical Figure Value" />
+                                        <ToolbarSpacer />
+                                        <Button icon="sap-icon://download"/>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                            </Panel>
+                            <Panel expand="false" expandable="true" width="auto" class="sapUiMediumMarginEnd sapUiTinyMarginBottom">
+                                <headerToolbar>
+                                    <OverflowToolbar active="true" press="onNav($event, 'Detail', 'RecurringSupplierInvoice')">
+                                        <Title text="Recurring Supplier Invoice" />
+                                        <ToolbarSpacer />
+                                        <Button icon="sap-icon://download"/>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                            </Panel>
+                            <!-- <l:HorizontalLayout id="tileContainerCollapsed" class="sapMSampleTileContainer">
+                                <GenericTile id="tile4" header="Test" subheader="Test 2" frameType="Auto" enableNavigationButton="true" state="Loading" width="100%" scope="Display" mode="LineMode" press="press" sizeBehavior="Responsive" class="sapUiTinyMarginEnd sapUiTinyMarginBottom">
+                                </GenericTile>
+                            </l:HorizontalLayout>
+                            <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Country-Specific Profit Margin" press="onPress" frameType="TwoThirds">
+                                <TileContent unit="EUR" footer="Current Quarter">
+                                    <NumericContent scale="M" value="1.96" valueColor="Error" indicator="Up" withMargin="false" />
+                                </TileContent>
+                            </GenericTile> -->
+                        </items>
+                    </VBox>
+                    <!-- <l:VerticalLayout id="containerLayout" width="100%">
+                        <l:BlockLayout id="BlockLayout" background="Dashboard">
+                            <l:BlockLayoutRow accentCells="Accent1">
+                                <l:BlockLayoutCell id="Accent1" title="Left aligned heading">
+                                    <l:titleLink>
+                                        <Link text="Statistical Figure Value" press="onNav($event, 'Detail')" />
+                                    </l:titleLink>
+                                    <VBox justifyContent="End" alignItems="End">
+                                        <core:Icon src="sap-icon://download" size="2.5rem" color="#1C4C98" press="onExcelDownload">
+                                            <core:layoutData>
+                                                <FlexItemData growFactor="1" />
+                                            </core:layoutData>
+                                        </core:Icon>
+                                    </VBox>
+                                </l:BlockLayoutCell>
+                                <l:BlockLayoutCell id="Accent2" title="Left aligned heading">
+                                    <l:titleLink>
+                                        <Link text="Supplier Invoices" press="onNav($event, 'Detail')" />
+                                    </l:titleLink>
+                                    <VBox justifyContent="End" alignItems="End">
+                                        <core:Icon src="sap-icon://download" size="2.5rem" color="#1C4C98" press="onExcelDownload">
+                                            <core:layoutData>
+                                                <FlexItemData growFactor="1" />
+                                            </core:layoutData>
+                                        </core:Icon>
+                                    </VBox>
+                                </l:BlockLayoutCell>
+                                <l:BlockLayoutCell id="Accent3" title="Left aligned heading">
+                                    <l:titleLink>
+                                        <Link text="Supplier Invoices" press="onNav($event, 'Detail')" />
+                                    </l:titleLink>
+                                    <VBox justifyContent="End" alignItems="End">
+                                        <core:Icon src="sap-icon://download" size="2.5rem" color="#1C4C98" press="onExcelDownload">
+                                            <core:layoutData>
+                                                <FlexItemData growFactor="1" />
+                                            </core:layoutData>
+                                        </core:Icon>
+                                    </VBox>
+                                </l:BlockLayoutCell>
+                            </l:BlockLayoutRow>
+                        </l:BlockLayout>
+                    </l:VerticalLayout> -->
+                </f:mainContent>
+                <f:items>
+                    <f:SidePanelItem icon="sap-icon://upload-to-cloud" text="Migration">
+                        <!-- <VBox>
+							<Text text="Static Content" class="sapUiSmallMarginBottom" />
+							<Text text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+							<Switch />
+							<Button text="Press me" />
+						</VBox> -->
+                    </f:SidePanelItem>
+                    <f:SidePanelItem icon="sap-icon://action-settings" text="Configuration">
+                    </f:SidePanelItem>
+                </f:items>
+            </f:SidePanel>
+        </content>
     </Page>
 </mvc:View>
