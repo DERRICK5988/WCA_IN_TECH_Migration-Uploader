@@ -10,9 +10,9 @@
     xmlns:t="sap.ui.table"
     xmlns:uxap="sap.uxap"
     xmlns:i18n="sap.ui.model.resource.ResourceModel">
-    <Page showHeader="false">
-        <content>
-            <f:SidePanel id="mySidePanel" toggle="onToggle" sidePanelResizable="true" sidePanelPosition="Left">
+    <f:DynamicPage>
+        <f:content>
+            <f:SidePanel id="idSidePanel" toggle="onToggle" sidePanelResizable="true" sidePanelPosition="Left">
                 <f:mainContent>
                     <!-- <VBox fitContainer="true">
                         <items items="{path: 'products>/ProductCollection'}">
@@ -111,6 +111,6 @@
                     </f:SidePanelItem>
                 </f:items>
             </f:SidePanel>
-        </content>
-    </Page>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>

@@ -26,14 +26,21 @@ sap.ui.define([
         onInit() {
             debugger;
             this.oBusyDialog = new BusyDialog();
-            this.getRouter().getRoute("Master").attachPatternMatched(this._onMasterMatched, this);
+            // this.getView().getModel("appView").setProperty("/layout", "OneColumn");
+            // this.getRouter().getRoute("Master").attachPatternMatched(this._onMasterMatched, this);
+            // this.oRouter.getRoute("Master").attachPatternMatched(this._onMasterMatched, this);
         },
         onNav: function (oEvent, sNavtarget, sFragment) {
             debugger;
             this.getModel("appView").setProperty("/previousLayout", this.getModel("appView").getProperty("/layout"));
             this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
-            this.getRouter().navTo("Detail", { sParam: encodeURIComponent(JSON.stringify({ sFragment: sFragment })) }, !Device.system.phone);
+            this.getRouter().navTo("detail", { 
+                sParam: encodeURIComponent(JSON.stringify({ sFragment: sFragment })) 
+              }, !Device.system.phone);
         },
+        // onExit: function () {
+        //     this.getRouter().getRoute("Master").detachPatternMatched(this._onMasterMatched, this);
+        // },
 
         /* =========================================================== */
         /* begin: private methods                                     */
@@ -44,14 +51,10 @@ sap.ui.define([
         * @param {object} sap.ui.base.Event 
         * @private
         */
-        _onMasterMatched: async function () {
-            debugger;
-            //When route back to Master view, removed hidden popin
-            // this.byId("idProjectTable").setHiddenInPopin([]);
-            //Set the layout property of the FCL control to 'OneColumn'
-            this.getModel("appView").setProperty("/layout", "OneColumn");
-            this.setModel(models.initiateModel.call(this), "Master");
-        },
-
+        // _onMasterMatched: async function () {
+        //     debugger;
+        //     this.getModel("appView").setProperty("/layout", "OneColumn");
+        //     this.setModel(models.initiateModel.call(this), "Master");
+        // },
     });
 });

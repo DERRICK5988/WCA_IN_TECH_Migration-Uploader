@@ -34,8 +34,8 @@ sap.ui.define([
                 sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
                 // this._registerForP13nDetail();
                 // this.setModel(oViewModel, "Detail");
-                // this.getRouter().getRoute("Master").attachPatternMatched(this._onMasterMatched, this);
-                this.getRouter().getRoute("Detail").attachPatternMatched(this._onDetailMatched, this);
+                this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+                this.getRouter().getRoute("detail").attachPatternMatched(this._onDetailMatched, this);
             },
             // onCloseDetail: function () {
             //     this.getModel("appView").setProperty("/actionButtonsInfo/midColumn/fullScreen", false);
@@ -43,13 +43,23 @@ sap.ui.define([
             //     this.getRouter().navTo("Master");
             // },
             onExit: function () {
-                this.oRouter.getRoute("Detail").detachPatternMatched(this._onDetailMatched, this);
+                debugger;
+                sap.ui.getCore().getMessageManager().removeAllMessages();
+                this.oRouter.getRoute("master").detachPatternMatched(this._onMasterMatched, this);
+                this.oRouter.getRoute("detail").detachPatternMatched(this._onDetailMatched, this);
             },
 
             /* =========================================================== */
             /* begin: private methods                                     */
             /* =========================================================== */
-
+            /**
+            * Function triggered from onSearch function to retrive Debit memo/ billing doc detail 
+            * @param {object} sap.ui.base.Event 
+            * @private
+            */
+            _onMasterMatched: async function (oEvent) {
+                var oArguments = oEvent.getParameter("arguments");
+            },
             /**
             * Function triggered from onSearch function to retrive Debit memo/ billing doc detail 
             * @param {object} sap.ui.base.Event 
