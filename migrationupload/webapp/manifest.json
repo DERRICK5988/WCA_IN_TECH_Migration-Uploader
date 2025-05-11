@@ -41,7 +41,14 @@
       "minUI5Version": "1.135.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {},
+        "sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -70,54 +77,49 @@
       ]
     },
     "routing": {
-      "config": 
-      {
-				"routerClass": "sap.f.routing.Router",
-				"type": "View",
-				"viewType": "XML",
-				"path": "intech.migrationupload.view",
-				"controlId": "layout",
-				"transition": "slide",
-				"bypassed": {
-				},
-				"async": true
-			},
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "intech.migrationupload.view",
+        "controlId": "layout",
+        "transition": "slide",
+        "bypassed": {},
+        "async": true
+      },
       "routes": [
         {
-          "name": "Master",
+          "name": "master",
           "pattern": "",
           "target": [
-            "Master"
+            "master",
+            "detail"
           ]
         },
         {
-          "name": "Detail",
-          "pattern": "Detail/{sParam}",
+          "name": "detail",
+          "pattern": "detail/{sParam}",
           "target": [
-            "Detail"
+            "master",
+            "detail"
           ]
         }
       ],
       "targets": {
-        "Master": {
-          "id": "master",
-          "name": "Master",
-          "viewLevel": 0,
+        "master": {
+          "viewName": "Master",
           "controlAggregation": "beginColumnPages"
         },
-        "Detail": {
-          "id": "detail",
-          "name": "Detail",
-          "viewLevel": 1,
+        "detail": {
+          "viewName": "Detail",
           "controlAggregation": "midColumnPages"
         }
       }
     },
-    "rootView": {
-      "viewName": "intech.migrationupload.view.App",
-      "type": "XML",
-      "id": "App",
-      "async": true
-    }
+		"rootView": {
+			"viewName": "intech.migrationupload.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		}
   }
 }

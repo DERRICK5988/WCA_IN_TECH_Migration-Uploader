@@ -21,6 +21,7 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            debugger;
 
             // Initialize necessary components/ services before load screen
             this.initComponent(this);
@@ -34,6 +35,7 @@ sap.ui.define([
         initComponent: function (oComponent) {
             this._oComponent = oComponent;
             this._oResourceBundle = this.getModel("i18n").getResourceBundle();
+            this.oRouter = oComponent.getRouter();
             // this.setModel(this.getModel("API_CREDIT_MEMO_REQUEST_SRV").getServiceMetadata().dataServices.schema[0].entityType, "CreditMemoMetadata");
         },
 
